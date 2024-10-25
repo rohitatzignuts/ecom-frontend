@@ -11,7 +11,7 @@ const prevOrders = ref<unknown[]>([])
 // Methods
 const getPrevOrders = async () => {
     try {
-        const response = await axiosInstance.get("orders/prev/")
+        const response = await axiosInstance.get("api/orders/prev/")
         if (response?.status == 200) {
             prevOrders.value = response?.data
         }
@@ -39,7 +39,7 @@ onMounted(() => {
                                     orderStatus(order?.status).value }}</VChip>
                             </div>
                             <span class="text-body-2 rounded">
-                                {{ moment(order?.created_at).format("MMM Do YY") }}
+                                {{ moment(order?.created_at).format('lll') }}
                             </span>
                         </div>
                         <VChip color="primary">

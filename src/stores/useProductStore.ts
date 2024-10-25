@@ -7,7 +7,7 @@ export const useProductStore = defineStore('products', () => {
 
     const getProducts = async () => {
         try {
-            const response = await axiosInstance.get('products/')
+            const response = await axiosInstance.get('api/products/')
             if (response?.data?.length) {
                 products.value = response?.data
             }

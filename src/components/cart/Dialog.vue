@@ -31,7 +31,7 @@ const cartTotal = computed(() => {
 // Methods
 const confirmOrder = async () => {
     try {
-        const orderResponse = await axiosInstance.post("orders/");
+        const orderResponse = await axiosInstance.post("api/orders/");
         const orderId = orderResponse.data.id;
 
         if (orderResponse.status === 201) {
@@ -41,7 +41,7 @@ const confirmOrder = async () => {
                     order: orderId,
                     quantity: item.quantity,
                 };
-                await axiosInstance.post("order-item/", orderItemData);
+                await axiosInstance.post("api/order-item/", orderItemData);
             }
 
             // Alert and clear cart if order is successful
